@@ -40,8 +40,8 @@ axis.bar(data_table['x'],data_table['Pb'])
 axis.plot(data_table['x'],data_table['Pb'],color='C2')
 # plt.show()
 
-binomial_plot.savefig("imagen.png")
+# binomial_plot.savefig("imagen.png")
 ###########################################################
 
 st.title('graficos binomiales')
-st.pyplot(binomial_plot)
+# st.pyplot(binomial_plot)
