@@ -9,4 +9,4 @@ def prob(x,n,p):
 
     return comb*p_x*q_nx
 
-print('hola')
+print('hola siiii')
