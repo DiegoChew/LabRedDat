@@ -68,3 +68,5 @@ st.bar_chart(data=df, x="Cantidad de valores deseados por experimento", y="Proba
 st.text('''Se consideró un deslizadores para el ingreso de datos dado que la grafica tendrá más "vida"
 a la hora de selecionar los datos, ya que esta se estaria actualizando continuamente al deslizar, 
 además facilita el contról de los parametros permitidos. ''')
+
+#prueba
