@@ -37,22 +37,25 @@ repeat_counts_index = repeat_counts.reindex(todos_numeros, fill_value=0)
 df_grafico = pd.DataFrame({'Cantidad de caras por tiro': repeat_counts_index.index, 'Cantidad de veces que obtivimos el caso': repeat_counts_index.values})
 
 #grafica de barras de la tabla de datos
-st.bar_chart(df_grafico, x="Cantidad de caras por tiro", y="Cantidad de veces que obtivimos el caso", color='#CA6F1E')
+# st.bar_chart(df_grafico, x="Cantidad de caras por tiro", y="Cantidad de veces que obtivimos el caso", color='#CA6F1E')
 
 xD=np.array(repeat_counts.index)
-print(xD)
+# print(xD)
 yD=np.array(repeat_counts.values)
-print(yD)
-fit, cdds=sco.curve_fit(binom,xD,yD,p0=[np.mean(xD), np.mean(yD)/n], maxfev=1000)
+# print(yD)
+fit, cdds=sco.curve_fit(binom,repeat_counts_index.index,repeat_counts_index.values,p0=[np.mean(xD), np.mean(yD)/n], bounds=([0, 0], [100, 1]))
+
 n=fit[0]
 p=fit[1]
-print(n,p)
-binomial_plot=px.line(x=repeat_counts_index.index,y=repeat_counts_index.values,title="Binomial ajustada")
-binomial_plot.add_bar(x=repeat_counts_index.index,y=repeat_counts_index.values, name="Lanzamientos experimentales")
-
-binomial_plot.show()
 
 
+binomial_plot=px.line(x=repeat_counts_index.index,y=binom(repeat_counts_index.index,n,p),title="Binomial ajustada")
+binomial_plot.add_bar(x=repeat_counts_index.index,y=repeat_counts_index.values/100, name="Lanzamientos experimentales", marker_color='#CA6F1E')
+binomial_plot.update_layout(xaxis_title="Cantidad de caras por tiro", yaxis_title="Cantidad de veces que obtivimos el caso")
 
-print(fit)
+st.plotly_chart(binomial_plot)
+
+
+
+# print(fit)
 
