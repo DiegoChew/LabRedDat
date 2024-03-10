@@ -1,8 +1,18 @@
-import math
 import numpy as np
 import streamlit as st
 import plotly.express as px
 import pandas as pd
+from scipy import optimize as sco
+from scipy.special import comb
+import math
+
+def binom(x, n, p):
+    x = np.asarray(x)  # Convertir a array si es necesario
+    n = int(n)
+    comb_vals = comb(n, x)
+    p_x = p**x
+    q_nx = (1-p)**(n-x)
+    return comb_vals * p_x * q_nx
 
 sheet_id='1H943jgKOzqguRgjYEx7BPr5PoyvTXf7lfs9mqdlWBsk'
 
@@ -21,11 +31,28 @@ repeat_counts = df_team.value_counts()
 todos_numeros = range(11)
 
 #Agregando los valores de los numeros que no aparecieron
-repeat_counts = repeat_counts.reindex(todos_numeros, fill_value=0)
+repeat_counts_index = repeat_counts.reindex(todos_numeros, fill_value=0)
 
 #crear un dataframe para graficar  
-df_grafico = pd.DataFrame({'Cantidad de caras por tiro': repeat_counts.index, 'Cantidad de veces que obtivimos el caso': repeat_counts.values})
+df_grafico = pd.DataFrame({'Cantidad de caras por tiro': repeat_counts_index.index, 'Cantidad de veces que obtivimos el caso': repeat_counts_index.values})
+
+#grafica de barras de la tabla de datos
+st.bar_chart(df_grafico, x="Cantidad de caras por tiro", y="Cantidad de veces que obtivimos el caso", color='#CA6F1E')
+
+xD=np.array(repeat_counts.index)
+print(xD)
+yD=np.array(repeat_counts.values)
+print(yD)
+fit, cdds=sco.curve_fit(binom,xD,yD,p0=[np.mean(xD), np.mean(yD)/n], maxfev=1000)
+n=fit[0]
+p=fit[1]
+print(n,p)
+binomial_plot=px.line(x=repeat_counts_index.index,y=repeat_counts_index.values,title="Binomial ajustada")
+binomial_plot.add_bar(x=repeat_counts_index.index,y=repeat_counts_index.values, name="Lanzamientos experimentales")
+
+binomial_plot.show()
 
 
-st.bar_chart(df_grafico, x="Cantidad de caras por tiro", y="Cantidad de veces que obtivimos el caso", color='#CA6F1E') #grafica de barras de la tabla de datos
+
+print(fit)
 
