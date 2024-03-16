@@ -6,6 +6,14 @@ from scipy import optimize as sco
 from scipy.special import comb
 import math
 
+# Título de la página
+st.title("Práctica 1- Distribución binomial en lanzamientos de moneda")
+ # Texto a mostrar
+texto = "Esta página tiene como fin graficar un histograma que muestre la distribución de conteos de caras de los primeros n tiros de 10 monedas, donde n va desde 1 a 100 tiros. Está diseñada de tal manera que se puede observar la distribución para cada caso respectivo"
+    
+# Mostrar el texto
+st.write(texto)
+
 def binom(x, n, p):
     x = np.asarray(x)  # Convertir a array si es necesario
     n = int(n)
@@ -54,7 +62,18 @@ binomial_plot.add_bar(x=repeat_counts_index.index,y=repeat_counts_index.values/1
 binomial_plot.update_layout(xaxis_title="Cantidad de caras por tiro", yaxis_title="Cantidad de veces que obtivimos el caso")
 
 st.plotly_chart(binomial_plot)
+# Agregue los datos de el fit.
+val_fit=[n,p]
+tb1=pd.DataFrame(val_fit, columns=["Datos del fit"])
+st.table(tb1)
+# Agregue un botón para desplegar la tabla de datos a plotear. 
+st.write('Para ver la tabla de datos que se graficaron, pulse el botón que esta debajo de este texto')
 
+ver_tabla = st.checkbox("Mostrar/ocultar tabla")
+
+if ver_tabla:
+    # Mostrar el DataFrame si el botón está activado
+    st.dataframe(df_team)
 
 
 # print(fit)
