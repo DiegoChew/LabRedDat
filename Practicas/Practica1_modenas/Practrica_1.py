@@ -139,12 +139,18 @@ if on2:
     # Mostrar el DataFrame si el botón está activado
         st.dataframe(filter_columns)
 st.divider()
-
+st.subheader("Discusión de resultados")
+st.markdown(":coin: Al considerar la primera distribución podemos notar una correlación de los datos graficados con la forma de una distribución binomial, esto"
+            "se mira mejor al ire desarrollando los casos el histograma va acoplandose a la forma de una binomial")
+# st.markdown(":coin: El fit realizado en las distribuciones logra optener mejores resultados entre mayores datos tengamos.")
+# st.markdown(":coin: En ambas distribuciones se puede ver una clara correlación en la probabilidad de las monedas y una distribución binomal que va mejorando entre mayores datos tengamos.")
+st.markdown(":coin: La distribución binomial al no ser una función continua tenemos un mayor error al encontrar nuestro fit, por lo que puede ser una razón extra "
+            "en la cuál el fit no llegue a n=10")
 st.subheader("Conclusiones")
-st.markdown(":coin: Al considerar la primera distribución podemos notar una correlación de los datos graficados con la forma de una distribución binomial.")
+# st.markdown(":coin: Al considerar la primera distribución podemos notar una correlación de los datos graficados con la forma de una distribución binomial.")
 st.markdown(":coin: El fit realizado en las distribuciones logra optener mejores resultados entre mayores datos tengamos.")
 st.markdown(":coin: En ambas distribuciones se puede ver una clara correlación en la probabilidad de las monedas y una distribución binomal que va mejorando entre mayores datos tengamos.")
-st.markdown(":coin: La distribución binomial al no ser una función continua tenemos un mayor error al encontrar nuestro fit.")
+# st.markdown(":coin: La distribución binomial al no ser una función continua tenemos un mayor error al encontrar nuestro fit.")
 
 codigo_latex = r'''P(n ; k) = \binom{n}{k} \cdot p^k \cdot (1-p)^{n-k} '''
 def mostrar_vineta():
