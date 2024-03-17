@@ -57,17 +57,21 @@ st.markdown("Para esta practica se consideró dos distribuciones de datos, para 
 
 sheet_id='1H943jgKOzqguRgjYEx7BPr5PoyvTXf7lfs9mqdlWBsk'
 
-df=pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv")
+df=pd.read_csv("ConteosDeCarasPorPareja - Sheet1.csv")
 
 on=st.toggle("Primera distribución")
 if on:
     st.subheader("Primera distribución")
     m=st.slider("Ingrese la cantidad de intentos que desee contabilizar",1,100)
 <<<<<<< HEAD
+<<<<<<< HEAD
 #
 =======
 
 >>>>>>> 6f8795d (Un poco mas)
+=======
+#
+>>>>>>> e9a3e14 (MIremos)
 
 # Seleccionar las primeras m filas y la columna "Diego - Saul"
     df_team = df.iloc[:m, :]["Diego - Saul"]
