@@ -55,9 +55,9 @@ st.markdown("Para esta practica se consideró dos distribuciones de datos, para 
             "esta distribución se utilizará un deslizador que va contabilizando lo obtenido por cada tiro, encontrando su ajuste a la binomial, su desviación estándar por los datos medidos y por el ajuste encontrado"
             ". Para la segunda distribución se consideró 600 datos en loa cuales se lanzaron 10 monedas y se realizará lo mismo que se atrató anteriormente con el detalle que no tendremos el deslizador.")
 
-sheet_id='1H943jgKOzqguRgjYEx7BPr5PoyvTXf7lfs9mqdlWBsk'
+# sheet_id='1H943jgKOzqguRgjYEx7BPr5PoyvTXf7lfs9mqdlWBsk'
 
-df=pd.read_csv('ConteosDeCarasPorPareja.xlsx')
+df=pd.read_csv("/home/diego/Documentos/LabRedDat/Practicas/ConteosDeCarasPorPareja.csv")
 
 on=st.toggle("Primera distribución")
 if on:
