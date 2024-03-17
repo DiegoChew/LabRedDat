@@ -75,6 +75,34 @@ if ver_tabla:
     # Mostrar el DataFrame si el botón está activado
     st.dataframe(df_team)
 
+codigo_latex = r'''P(X ; k) = \binom{n}{k} \cdot p^k \cdot (1-p)^{n-k} '''
+def mostrar_vineta():
+    # Información e imágenes que deseas mostrar en la viñeta
+    st.markdown("sobre la distribución binomial")
+    st.write("Defínase la distribución binomial como una distribución de probabilidad discreta que, en pocas palabras, cuenta el número de éxitos de n ensayos independientes entre si con una probabilidad fija p. Estos ensayos son del tpo dicotómico, es decir, solo son posibles dos resultados, el éxito y el fracaso. Naturalmente definimos a consecuencia que el fracaso está dada por q=1-p; Notemos que se satisface p+q=1. Su ecuación viene dada por")
+ # Mostrar código LaTeX
+    st.latex(codigo_latex)
+    st.write(" Mediante esta gráfica puede observar el comportamiento de esta gráfica")
+    st.markdown("""
+    <style>
+        .imagen {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+    st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Binomial_distribution_pmf.svg/325px-Binomial_distribution_pmf.svg.png", caption="Descripción de la imagen", width=400, output_format='PNG', use_column_width=True)
+
+viñeta_visible = False
+
+# Botón para mostrar/ocultar la viñeta
+if st.button("Presione acá para tener información acerca de la distribución binomial"):
+    viñeta_visible = not viñeta_visible
+
+if viñeta_visible:
+    mostrar_vineta()
 
 # print(fit)
 
