@@ -32,7 +32,7 @@ st.markdown("Para esta practica se consideró dos distribuciones de datos, para 
 
 sheet_id='1H943jgKOzqguRgjYEx7BPr5PoyvTXf7lfs9mqdlWBsk'
 
-df=pd.read_csv('ConteosDeCarasPorPareja.csv')
+df=pd.read_csv('ConteosDeCarasPorPareja.xlsx')
 
 on=st.toggle("Primera distribución")
 if on:
