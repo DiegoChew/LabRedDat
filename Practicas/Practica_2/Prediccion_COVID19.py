@@ -16,4 +16,16 @@ def txt_marco_teorico():
 if st.button('Hago click para saber acerca de la teória de la práctica.'):
     txt_marco_teorico()
 
+    # Datos fit para 1 de junio de 2020
+    # Final set of parameters            Asymptotic Standard Error
+# =======================            ==========================
+# A               = 298.164          +/- 14.24        (4.775%)
+# u               = 90.5441          +/- 0.8669       (0.9575%)
+# r               = 9.0499           +/- 0.863        (9.536%)
     
+    # Datos fit para 15 de marzo de 2021
+#     Final set of parameters            Asymptotic Standard Error
+# =======================            ==========================
+# A               = 682.927          +/- 27.36        (4.006%)
+# u               = 247.195          +/- 8.098        (3.276%)
+# r               = 135.612          +/- 10.01        (7.379%)
