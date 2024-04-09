@@ -16,4 +16,6 @@ df_nuevo_filtrado=df_nuevo.set_index('fecha').reindex(rango_fechas_completo, fil
 
 df_nuevo_filtrado = df_nuevo.rename(columns={'index': 'fecha'})
 
-df_nuevo_filtrado.to_csv('csv_filtrado_2.csv', index=False)
+df_nuevo_filtrado.insert(0, 'Nueva Columna', range(1, len(df_nuevo_filtrado) + 1))
+
+df_nuevo_filtrado.to_csv('csv_filtrado.csv', index=False)
