@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 70ca94c (Listones)
 Nueva Columna,fecha,Casos por fecha de emisión de resultados
 1,2020-02-14,0
 2,2020-02-16,0
@@ -1498,6 +1501,7 @@ Nueva Columna,fecha,Casos por fecha de emisión de resultados
 1494,2024-03-29,3
 1495,2024-03-30,4
 1496,2024-03-31,10
+<<<<<<< HEAD
 =======
 fecha,Casos por fecha de emisión de resultados
 2020-02-14,0
@@ -2997,3 +3001,5 @@ fecha,Casos por fecha de emisión de resultados
 2024-03-30,4
 2024-03-31,10
 >>>>>>> f187724 (Nuevo csv)
+=======
+>>>>>>> 70ca94c (Listones)
