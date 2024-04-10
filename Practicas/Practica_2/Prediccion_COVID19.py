@@ -1,7 +1,33 @@
 <<<<<<< HEAD
 =======
 import streamlit as st
+import pandas as pd
 # Agregar el link de la pag de gob.
+#Tabla de parámetros-------------
+latex_table = r'''
+\begin{array}{|c|c|}
+\hline
+\text{Columna 2} & \text{Columna 3} \\
+\hline
+A & 298.164 \\
+u & 90.54 \\
+r & 9.05  \\
+\hline
+\end{array}
+'''
+latex_table2 = r'''
+\begin{array}{|c|c|}
+\hline
+\text{Columna 2} & \text{Columna 3} \\
+\hline
+A & 682.927 \\
+u & 247.195 \\
+r & 135.612 \\
+\hline
+\end{array}
+'''
+#--------------------------------
+
 # imagenes------------------------------------
 ecuacion_latex = r'f(x) = A e^{-\frac{(x - \mu)^2}{2r^2}}'
 imgfit1= "/home/saul/Desktop/LabRedDat/Practicas/Practica_2/Fit 1.png"
@@ -32,11 +58,15 @@ def txt_Discusión_Resul():
     st.markdown('<p style="font-size: 23px;">Para el primer intervalo se tuvo lo siguiente:</p>', unsafe_allow_html=True)
     st.image(imgfit1, caption= 'Del 13 de marzo de 2020 a 1 de junio de 2020')
     st.write('Es de notable interés que la tendencia general del cuerpo de datos sigue la forma propuesta. Si desplazamos este mismo intervalo unos días más, se presenta la siguiente nueva gráfica, note que se incluyó el ajuste hecho durante el primer intervalo.')
+    st.write('Los parámetros que se obtuvieron para este ajuste fueron:')
+    st.latex(latex_table)
     st.image(imgfit1_1, caption= 'Del 13 de marzo de 2020 a unos días después de 1 de junio de 2020')
     st.write('Evidentemente el intervalo empleado es insuficiente para proponer una predicción cercana a la realidad, sin embargo, puede ser observado que estudiando la distribución de datos hasta ese punto, la tendencia de la gráfica parece se del tipo Poisson ! .')
     st.markdown('<p style="font-size: 23px;">Para el segundo intervalo se tuvo lo siguiente:</p>', unsafe_allow_html=True)
     st.image(imgfit2, caption='Del 13 de marzo de 2020 a 15 de marzo de 2021')
     st.write('A inspección directa, es concluyente que el ajuste con la binomial no parece ser eficiente, la distribución de datos parace caracterizarse por dos picos en la cantidad de contagios. Es concluyente que para intervalos grandes, un ajuste mediante un modelo binomial es impreciso.')
+    st.write('Los parámetros que se determinaron para el ajuste fueron: (Note que este ajuste es mucho más impreciso que el del primer intervalo))')
+    st.latex(latex_table2)
     st.title('Conclusiones ')
     st.write(' 1. Es concluyente que una predicción a largo y mediano plazo es incompatible con un modelo de distribución binomial, una razón bastante específica es que la binomial se caracteriza por un máximo solo, impide la posibilidad de un comportamiento en los datos como los evaluados en la práctica. Es preciso emplear otro modelo. Una razón por la cual este modelo falla, es que se asume una probabilidad constante asociada al evento, no toma en cuenta que los factores sociales, econónmicos, entre otros, pueden inducir un cambio en la probabilidad de contagio !.')
     st.write(' 2. Puede ser extraido de estos resultados la siguiente observación: La distribución binomial parece mejorar cuando se consideran intervalos "pequeños" de tiempo, es de hecho una conclusión que podemos deducir de la previa conclusión, ya que en intervalos "suficientemente cortos" podemos albergar en nuestra distribución un único máximo, de ello que un modelo de distribución binomial puede llegar a ser efectivo.')
