@@ -4,7 +4,7 @@ st.caption("Integrantes: Saúl Nájera 202107506 - Diego Chew 202103317")
 
 st.header("Practica 3 - Decaimiento de Cesio-137")
 
-text = '''La practica consiste en medir la radiación de un elemento radiactivo, y encontrar un fit el cual se ajuste a los datos optenidos.
+text = '''La practica consiste en medir la radiación de un elemento radiactivo, y encontrar un fit el cual se ajuste a los datos obtenidos.
 Del mismo modo medir la radiación ambiente y encontrar un fit en el cual este ajuste de una manera optima.
 
 Para esta practica el material radiactivo que se medirá es Cesio-137 el cual es un isotopo radiactivo producido principalmente por fisión 
