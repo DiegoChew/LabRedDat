@@ -43,7 +43,7 @@ if option == "Radiación del aire (Poisson)":
     col1, col2 = st.columns(2)
     col1.metric("Parametros de la función", "U=2.46674", " ")
     col2.metric(" ", "A=248.233", " ")
-    st.image("/home/diego/Documentos/LabRedDat/Practicas/Practica_3/Aire_posson.png", width=700)
+    st.image("https://imgur.com/cky8vqE.png", width=700)
 
     
 if option == "Radiación del aire (Gaussiana)":
@@ -51,14 +51,15 @@ if option == "Radiación del aire (Gaussiana)":
     col1.metric("Parametros de la función", "U=2.18871", " ")
     col2.metric(" ", "A=63.5732", " ")
     col3.metric(" ", "R=1.59884", " ")
-    st.image("/home/diego/Documentos/LabRedDat/Practicas/Practica_3/Aire_gauss.png", width=700)
+    imgur_url = "https://imgur.com/XrtRfU4.jpg"
+    st.image(imgur_url, width=700)
 
 if option == "Radiación Cesio-137 (Gaussiana)":
     col1, col2, col3 = st.columns(3)
     col1.metric("Parametros de la función", "U=4.9925", " ")
     col2.metric(" ", "A=4.9925", " ")
     col3.metric(" ", "R=23.0569", " ")
-    st.image("/home/diego/Documentos/LabRedDat/Practicas/Practica_3/Cesio_gauss.png", width=700)
+    st.image("https://imgur.com/iAyjfoj.png", width=700)
 
 on=st.toggle("Discusión de resultados")
 
