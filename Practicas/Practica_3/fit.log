@@ -3586,3 +3586,115 @@ correlation matrix of the fit parameters:
 A               1.000 
 u               0.057  1.000 
 r              -0.598 -0.122  1.000 
+
+
+*******************************************************************************
+Sat Apr 27 14:44:53 2024
+
+
+FIT:    data read from 'resultado_aire.csv' using 1:2 every :::0::d
+        format = x:z
+        #datapoints = 12
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = A*exp(-((x-u)/r)**2/2)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             u             r            
+   0 1.1724308065e+04   0.00e+00  6.02e+01    1.000000e+02   5.000000e+01   2.500000e+01
+  59 1.6079660530e+02  -1.49e-02  6.02e-04    6.357315e+01   2.188711e+00   1.598843e+00
+
+After 59 iterations the fit converged.
+final sum of squares of residuals : 160.797
+rel. change during last iteration : -1.4938e-07
+
+degrees of freedom    (FIT_NDF)                        : 9
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 4.22685
+variance of residuals (reduced chisquare) = WSSR/ndf   : 17.8663
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 63.5732          +/- 3.145        (4.947%)
+u               = 2.18871          +/- 0.09271      (4.236%)
+r               = 1.59884          +/- 0.1002       (6.266%)
+
+correlation matrix of the fit parameters:
+                A      u      r      
+A               1.000 
+u               0.057  1.000 
+r              -0.598 -0.122  1.000 
+
+
+*******************************************************************************
+Sat Apr 27 14:45:44 2024
+
+
+FIT:    data read from 'resultado_aire.csv' using 1:2 every :::0::d
+        format = x:z
+        #datapoints = 12
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x)= A*(((u**x)*(exp(-u)))/(gamma(x+1)))
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   u             A            
+   0 1.1399960429e+04   0.00e+00  5.65e+00    1.000000e+01   5.000000e+01
+  27 1.4326980707e+02  -2.97e-03  5.65e-05    2.466740e+00   2.482326e+02
+
+After 27 iterations the fit converged.
+final sum of squares of residuals : 143.27
+rel. change during last iteration : -2.97472e-08
+
+degrees of freedom    (FIT_NDF)                        : 10
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 3.7851
+variance of residuals (reduced chisquare) = WSSR/ndf   : 14.327
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+u               = 2.46674          +/- 0.07844      (3.18%)
+A               = 248.233          +/- 9.053        (3.647%)
+
+correlation matrix of the fit parameters:
+                u      A      
+u               1.000 
+A               0.233  1.000 
+
+
+*******************************************************************************
+Sat Apr 27 14:46:14 2024
+
+
+FIT:    data read from 'resultado_cesio.csv' using 1:2 every :::0::d
+        format = x:z
+        #datapoints = 81
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = A*exp(-((x-u)/r)**2/2)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             u             r            
+   0 1.1439999998e+03   0.00e+00  3.36e-07    2.050000e+02   2.500000e+01   5.000000e+01
+ 260 1.9257696611e+02  -8.18e-02  3.36e-04    4.992497e+00   4.426278e+02   2.305691e+01
+
+After 260 iterations the fit converged.
+final sum of squares of residuals : 192.577
+rel. change during last iteration : -8.18275e-07
+
+degrees of freedom    (FIT_NDF)                        : 78
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 1.57128
+variance of residuals (reduced chisquare) = WSSR/ndf   : 2.46894
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 4.9925           +/- 0.3145       (6.299%)
+u               = 442.628          +/- 1.809        (0.4087%)
+r               = 23.0569          +/- 2.028        (8.796%)
+
+correlation matrix of the fit parameters:
+                A      u      r      
+A               1.000 
+u               0.009  1.000 
+r              -0.588 -0.012  1.000 
