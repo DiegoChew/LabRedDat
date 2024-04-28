@@ -43,6 +43,8 @@ if option == "Radiación del aire (Poisson)":
     col1, col2 = st.columns(2)
     col1.metric("Parametros de la función", "U=2.46674", " ")
     col2.metric(" ", "A=248.233", " ")
+    col1.metric("Chi-cuadrado 1", "115875954952561.1", " ")
+    col1.metric("Chi-cuadrado 2", "6.5193", " ")
     st.image("https://imgur.com/cky8vqE.png", width=700)
 
     
@@ -51,14 +53,17 @@ if option == "Radiación del aire (Gaussiana)":
     col1.metric("Parametros de la función", "U=2.18871", " ")
     col2.metric(" ", "A=63.5732", " ")
     col3.metric(" ", "R=1.59884", " ")
+    col1.metric("Chi-cuadrado 1", "2.5057e+42", " ")
+    col1.metric("Chi-cuadrado 2", "51.9177", " ")
     imgur_url = "https://imgur.com/XrtRfU4.jpg"
     st.image(imgur_url, width=700)
 
 if option == "Radiación Cesio-137 (Gaussiana)":
     col1, col2, col3 = st.columns(3)
-    col1.metric("Parametros de la función", "U=4.9925", " ")
+    col1.metric("Parametros de la función", "U=442.628", " ")
     col2.metric(" ", "A=4.9925", " ")
     col3.metric(" ", "R=23.0569", " ")
+    col1.metric("Chi-cuadrado", "589.920", " ")
     st.image("https://imgur.com/iAyjfoj.png", width=700)
 
 on=st.toggle("Discusión de resultados")
@@ -70,7 +75,16 @@ if on:
                 a escalar la función.''')
     st.markdown(''':o: Se consideró la función gamma en lugar de la exponencial por practicidad del investigador.''')
 
+on=st.toggle("Conclusiones")
 
+if on:
+    st.markdown(''':o: Para la medición en el ambiente podemos concluir que la función que más se acerca es una de Poisson y para la del cesio-137 una Gaussiana.''')
+    st.markdown(''':o: Para la medición de radiación ambiente se tuvo que omitir el primer termino medido para el chi-cuadrado ya que este tomaba valores anomalos,
+                que se pueden apreciar en la diferencia entre el chi-cuadrado 1 y el chi-cuadrado 2. La justificación para este recorte es que se consideró 
+                el primer termino como una perturbación externa causada por nuestro medidor, considerando picos de voltaje al encenderse, comunes en electronicos. 
+                Esto no seria necesario para la medición del cesio ya que al tener valores muy superiores esta perturbación no tendría tanta relevancia.''')
+    st.markdown(''':o: Para obtener un valor de chi-cuadrado más optimo para la distribución Gaussiana en el cesio es necesario tomar más datos, que hallamos obtenido 
+                un valor alejado de 1 no quiere decir que sea una mala función para llegar a esa conclusión es necesario tomar mas datos.''')
 on=st.toggle("Más infomación")
 
 if on:
