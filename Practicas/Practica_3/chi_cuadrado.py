@@ -10,7 +10,7 @@ import math
 # Datos de columna a analizar y .csv
 datos = np.genfromtxt('resultado_cesio.csv', delimiter=',', skip_header=1)
 
-columna = datos[:, 0]
+columna = datos[:, 1]
 
 # Convertir la columna en un array de NumPy
 array_air = np.array(columna)
