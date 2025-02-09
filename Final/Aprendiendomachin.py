@@ -25,7 +25,7 @@ def loss_sq(W, phi, y):
     return pepi2**2
 
 def grad_loss_sq(W, phi, y):
-    # Se realiza el calculo algebraico del gradiente para llegar a esta funcion:
+ 
     score = np.dot(W, phi)
     pepi2 = score - y
 
@@ -35,33 +35,69 @@ df = pd.read_csv('t_ds.csv')
 
 extractor = URLExtract()
 
+# def contar_enlaces(texto):
+#     return len(extractor.find_urls(texto))
+
 def contar_enlaces(texto):
-    return len(extractor.find_urls(texto))
+    if isinstance(texto, str):
+        return len(extractor.find_urls(texto))
+    else:
+        return 0
 
 # Función para contar palabras clave en el texto
-def contar_palabras(texto):
-    patron_palabras = r'\b(?:win|free|won|txt|call|now|claim|winner|stop)\b'
-    return len(re.findall(patron_palabras, texto, flags=re.IGNORECASE))
+# def contar_palabras(texto):
+#     patron_palabras = r'\b(?:win|free|won|txt|call|now|claim|winner|stop)\b'
+#     return len(re.findall(patron_palabras, texto, flags=re.IGNORECASE))
 
+def contar_palabras(texto):
+    if isinstance(texto, str):
+        patron_palabras = r'\b(?:win|free|won|txt|call|now|claim|winner|stop)\b'
+        return len(re.findall(patron_palabras, texto, flags=re.IGNORECASE))
+    else:
+        return 0
+    
 # Función para contar caracteres numéricos en el texto
 def contar_caracteres_numericos(texto):
     return len(re.findall(r'\d', texto))
 
-# Función para contar palabras en mayúsculas
-def contar_palabras_mayusculas(texto):
-    return len(re.findall(r'\b[A-Z]+\b', texto))
+# # Función para contar palabras en mayúsculas
+# def contar_palabras_mayusculas(texto):
+#     return len(re.findall(r'\b[A-Z]+\b', texto))
 
+# def contar_palabras_minusculas(texto):
+#     return len(re.findall(r'\b[a-z]+\b', texto))
+
+# def media_palabras(texto):
+#     minusculas = contar_palabras_minusculas(texto)
+#     mayusculas = contar_palabras_mayusculas(texto)
+#     if mayusculas != 0:
+#         return minusculas / mayusculas
+#     else:
+#         return 0
 def contar_palabras_minusculas(texto):
-    return len(re.findall(r'\b[a-z]+\b', texto))
-
-def media_palabras(texto):
-    minusculas = contar_palabras_minusculas(texto)
-    mayusculas = contar_palabras_mayusculas(texto)
-    if mayusculas != 0:
-        return minusculas / mayusculas
+    if isinstance(texto, str):
+        return len(re.findall(r'\b[a-z]+\b', texto))
     else:
         return 0
 
+# Función para contar palabras en mayúsculas
+def contar_palabras_mayusculas(texto):
+    if isinstance(texto, str):
+        return len(re.findall(r'\b[A-Z]+\b', texto))
+    else:
+        return 0
+
+# Función para calcular la relación entre palabras minúsculas y mayúsculas
+def media_palabras(texto):
+    if isinstance(texto, str):
+        minusculas = contar_palabras_minusculas(texto)
+        mayusculas = contar_palabras_mayusculas(texto)
+        if mayusculas != 0:
+            return minusculas / mayusculas
+        else:
+            return 0
+    else:
+        return 0
 def contar_caracteres_especiales(texto):
     patron_especiales = r'[!@#$%^&*()_+\-=\[\]{};:.,"\\|<>\/?]'
     return len(re.findall(patron_especiales, texto))
@@ -75,6 +111,8 @@ conteo_especiales = df['Message'].apply(contar_caracteres_especiales)
 
 # Combinar los datos en una matriz numérica
 datos_numericos = np.column_stack((conteo_enlaces_por_fila, conteo_palabras_por_fila, conteo_digitos, conteo_palabras_media,conteo_especiales))
+# datos_numericos = np.column_stack((conteo_palabras_por_fila,conteo_palabras_por_fila, conteo_digitos,conteo_especiales))
+
 
 # Crear un nuevo DataFrame con los datos numéricos
 nuevo_df = pd.DataFrame()
@@ -89,7 +127,7 @@ print(nuevo_df)
 
 nuevo_df.to_csv('nuevo_ds.csv', index=False)
 # Entrenamiento del modelo
-max_iterations = 100
+max_iterations = 1000
 W_training = np.zeros(5)
 
 for iteration in range(max_iterations):
@@ -100,7 +138,7 @@ for iteration in range(max_iterations):
 
 print("Final weights:", W_training)
 # max_iterations = 500
-X = np.array([vec[:3] for vec in nuevo_df['Vector']])
+X = np.array([vec[1:4] for vec in nuevo_df['Vector']])
 y = nuevo_df['Category'].values
 
 # Crear el scatter plot 3D
@@ -112,10 +150,10 @@ for category in np.unique(y):
     ix = np.where(y == category)
     ax.scatter(X[ix, 0], X[ix, 1], X[ix, 2], c=colors[category], label=f'Category {category}', alpha=0.6)
 
-ax.set_xlabel('Dimensión 1')
-ax.set_ylabel('Dimensión 2')
-ax.set_zlabel('Dimensión 3')
-ax.set_title('Scatter plot de las primeras tres dimensiones del vector')
+ax.set_xlabel('conteo_palabras_por_fila')
+ax.set_ylabel('conteo_palabras_media')
+ax.set_zlabel('conteo_especiales')
+ax.set_title('Scatter plot de las tres dimensiones medias del vector')
 ax.legend()
 
 
